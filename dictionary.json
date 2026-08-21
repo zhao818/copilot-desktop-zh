@@ -840,7 +840,7 @@
     "Account this project bills to and uses for API calls and agent tools.": "此项目用于计费及 API 调用和智能体工具的账户。",
     "Repository configuration": "仓库配置",
     "Manage shared settings for this repository.": "管理此仓库的共享设置。",
-    "Add a .worktreeinclude file to the repo root to auto-copy gitignored files into new worktrees.": "在仓库根目录添加 .worktreeinclude 文件，以自动将 gitignore 中的文件复制到新工作树。",
+    "Add a .worktreeinclude file to the repo root to auto-copy gitignored files into new worktrees.": "在仓库根目录添加 .worktreeinclude 文件,以自动将 gitignore 的文件复制到新工作树中。",
     "Create config file": "创建配置文件",
     "Commands that run during workspace lifecycle events.": "在工作区生命周期事件期间运行的命令。",
     "Environment variables available to all scripts and terminals": "所有脚本和终端可用的环境变量",
@@ -991,7 +991,30 @@
     "Copy selection": "复制所选内容",
     "Creating files": "创建文件",
     "Creating files announcements": "创建文件通知",
-    "Browser": "浏览器"
+    "Browser": "浏览器",
+    "Use a custom branch prefix for this project.": "为此项目使用自定义分支前缀。",
+    "Choose how session branches incorporate incoming changes. Used for subsequent branch updates.": "选择会话分支如何合并传入的更改。用于后续分支更新。",
+    "Exclude": "排除",
+    "Include only": "仅包含",
+    "Worktree sparse-checkout": "工作树稀疏检出",
+    "Limit which directories are checked out in new session worktrees (requires git 2.27+).": "限制新会话工作树中检出的目录(需要 git 2.27+)。",
+    "Remote control": "远程控制",
+    "Access your sessions from GitHub web and mobile. Use /remote to toggle per session.": "从 GitHub 网页和手机访问你的会话。使用 /remote 按会话切换。",
+    "Servers defined by this repository in .mcp.json or .github/mcp.json.": "此仓库在 .mcp.json 或 .github/mcp.json 中定义的服务器。",
+    "Trust this repository": "信任此仓库",
+    "MCP servers can run local commands. Review .mcp.json or .github/mcp.json before trusting this repository.": "MCP 服务器可以运行本地命令。信任此仓库前,请先查看 .mcp.json 或 .github/mcp.json。",
+    "Trust repository": "信任仓库",
+    "Remove repository": "移除仓库",
+    "Removes !ZH from the sidebar. Your main checkout stays, but session worktrees are deleted and recovering uncommitted work from them is manual.": "从侧边栏中移除 !ZH。你的主检出保留,但会话工作树会被删除,从中恢复未提交的工作需要手动操作。",
+    "Explore this codebase and suggest what to improve next.": "探索此代码库,并建议接下来可以改进的地方。",
+    "Default branch": "默认分支",
+    "New sessions will branch off from this branch by default.": "新会话将默认从该分支派生。",
+    "Branch prefix override": "分支前缀覆盖",
+    "Preview:": "预览:",
+    "When your branch has diverged, incoming changes are merged in with a merge commit.": "当你的分支发生分叉时,传入的更改将通过合并提交合并进来。",
+    "When your branch has diverged, your local commits are replayed on top of incoming changes.": "当你的分支发生分叉时,你的本地提交将在传入更改之上重放。",
+    "Access your sessions from GitHub web and mobile. Use": "从 GitHub 网页和手机访问你的会话。使用",
+    "to toggle per session.": "按会话切换。"
   },
   "textPatterns": [
     [
@@ -1188,6 +1211,16 @@
       "^(\\d+) action without shortcut$",
       " 个操作,无快捷键",
       ""
+    ],
+    [
+      "^Preview: (.+)$",
+      "预览: ",
+      ""
+    ],
+    [
+      "^Removes (.+) from the sidebar\\. Your main checkout stays, but session worktrees are deleted and recovering uncommitted work from them is manual\\.$",
+      "从侧边栏中移除 。你的主检出保留,但会话工作树会被删除,从中恢复未提交的工作需要手动操作。",
+      ""
     ]
   ],
   "attrs": {
@@ -1332,7 +1365,9 @@
     "Open plan panel": "打开计划面板",
     "Open or cycle terminal": "打开或循环切换终端",
     "Add server": "添加服务器",
-    "Account actions": "账户操作"
+    "Account actions": "账户操作",
+    "Top-level directories to exclude, e.g. assets, vendor": "要排除的顶级目录,例如 assets、vendor",
+    "%username%-": "%username%-"
   },
   "attrPatterns": [
     [
