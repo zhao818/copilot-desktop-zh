@@ -1,0 +1,130 @@
+{
+  "arkcli-agent": {
+    "what": "arkcli agent：管理 ARK Managed Agents，包括 Agent / Skill / Env / Session / File / Memory Store / Vault / MCP OAuth。控制面优先走 ForTop/OpenTOP，Session 运行时和 Files 走数据面直联。",
+    "how": "先执行 `arkcli agent --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-api-explorer": {
+    "what": "arkcli Raw API Explorer：调用已注册的 Action 作为产品命令的兜底能力。当现有 `arkcli <domain> <verb>` 无法覆盖需求，或需要验证底层 Action 契约时使用。",
+    "how": "先执行 `arkcli api --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-auth": {
+    "what": "arkcli 认证管理：交互式登录、Volc SSO 登录、查看状态、退出登录、生成 ARK API Key (apikey)、以及云开发机/CI 用 `arkcli init-volc` 从 VOLC_INIT_* 环境变量无交互引导 platform profile。0.1.16 起 SSO 登录走 Gate 1+2 自动绑定 Profile 切面 (t…",
+    "how": "先执行 `arkcli auth --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-billing": {
+    "what": "查询火山引擎 ARK 拆分账单明细（结算金额、Token 用量计费），支持按账期月、月范围、Endpoint、API Key、产品编码等维度过滤。当用户问账单、花了多少钱、对账、账期、按 EP / API Key 拆账、按产品拆账、月度账单、出账明细时使用。注意 billing 跟 usage stats 不同：stats 出推理量（近实时），billing…",
+    "how": "先执行 `arkcli billing list --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-chat": {
+    "what": "arkcli +chat：通过数据面 Responses API 快速对话/推理，支持多模态、流式、多轮、临时 API Key/Base URL/Endpoint 执行与无副作用 dry-run。当用户给出 Endpoint 但未说明工作流时，先用 resources resolve 识别候选；有明确产出形态的多模态理解走 arkcli-understand…",
+    "how": "先执行 `arkcli +chat --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-code-example": {
+    "what": "arkcli +code-example：为指定基础模型生成多语言（Python / Go / Java / Node / curl）调用示例代码并写入本地文件。数据源是火山方舟 OpenTOP OpenGetSampleCode。当用户需要拿某个基础模型的 SDK / curl 调用示例、保存为本地接入模板时使用。反触发：TTS/ASR/语音模型没有 ar…",
+    "how": "先执行 `arkcli +code-example --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-config": {
+    "what": "arkcli 本地配置管理。0.1.16 起 profile 类操作请优先使用 `arkcli profile <subcmd>`（init/list/show/switch/delete 已 deprecated）；本 skill 仍可处理 `arkcli config reset` 与历史 yaml 排障。",
+    "how": "先执行 `arkcli config --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-connect": {
+    "what": "arkcli +connect：将 arkcli 内嵌的 AI skills 安装到本机检测到的所有 AI Agent 中，支持安装、列出已支持 agent、卸载。当用户需要将 arkcli 能力同步到 Claude Code 等本地 agent 时使用。",
+    "how": "先执行 `arkcli +connect --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-custommodel": {
+    "what": "arkcli 自定义模型仓库管理：从 TOS 导入自定义模型、查询/筛选自定义模型、查看详情、改名、删除、查询可用量化模式、量化已就绪的模型。任何提到自定义模型 ID（`cm-*`）的管理、部署准备，或要求用 `cm-*` 直接对话/推理/试效果的边界判断，都必须使用本 skill。注意：查询火山**公共基础模型**（doubao 等 foundation …",
+    "how": "先执行 `arkcli models custommodel --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-deploy": {
+    "what": "arkcli +deploy：创建推理接入点（Endpoint）的统一首选入口 —— **用户说『创建/新建/create 一个 endpoint/接入点』或『部署/上线/deploy 某模型』，只要意图是新建一个接入点，一律优先走这里，不要走 arkcli-infer-endpoint 的 create**。当用户需要把模型部署成在线推理接入点时使用。注意…",
+    "how": "先执行 `arkcli +deploy --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-doctor": {
+    "what": "arkcli doctor 统一入口，覆盖 CLI 健康、account、error、infer-endpoint、model、metrics、report 与 Ark 图片/视频来源特征验证。用户给 1-20 个媒体 URL 并问是否由 Ark/Seedance/Seedream 生成时，走 doctor +verify-origin：整批只披露并确认一次…",
+    "how": "先执行 `arkcli doctor --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-gen": {
+    "what": "火山方舟 Ark 图片/视频生成入口：支持 profile 默认资源与临时 API Key/Base URL/Endpoint；显式 Endpoint 不受当前 plan profile 误导。图片同步返回，视频异步轮询。",
+    "how": "先执行 `arkcli +gen --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-guide": {
+    "what": "火山方舟 Ark CLI 官方命令行工具使用指南。涉及 arkcli 的命令、模型、Endpoint、部署、用量、账单等一切问题,先看这里。",
+    "how": "先执行 `arkcli --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-helper": {
+    "what": "arkcli helper：为 Claude Code / Codex / OpenCode / OpenClaw / Hermes 配置火山方舟 Plan 或 Platform Endpoint 的 model/provider，或给支持的 Agent（含 MCP-only Trae）注入 MCP。真人 TTY 运行 `arkcli helper` 可选择…",
+    "how": "先执行 `arkcli helper mcp --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-infer-endpoint": {
+    "what": "arkcli 推理接入点**管理**能力：对**已有** Endpoint 做获取、列表、启动、停止、删除、更新（生命周期管理 + 启停 + 销毁）。优先使用产品命令 `arkcli infer endpoint ...`，而不是直接调用 Raw API。**反触发（重要）：用户说『创建/新建/create/部署/deploy 一个 endpoint/接入点…",
+    "how": "先执行 `arkcli infer endpoint --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-models": {
+    "what": "arkcli 模型查询能力：列出、搜索、获取火山**公共基础模型**（foundation models）详情。优先使用产品命令 `arkcli models ...`，而不是直接调用 Raw API。注意：查询/管理账号下**自传或精调的自定义模型**（`cm-xxx`）走 arkcli-custommodel；本 skill 只覆盖公共基础模型目录。语音…",
+    "how": "先执行 `arkcli models --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-onboard": {
+    "what": "arkcli 接入向导(workflow):把某个模型接入到自己的应用/服务的端到端引导 —— 从'我想用某模型'到拿到可调用的 Endpoint(+ 可选示例代码)。当用户说'我想在我的 app/服务里用豆包/某模型''怎么把方舟模型接进来''帮我接入 XX 模型''想正式用上某模型'这类**不含 deploy/部署关键词、但本质是正式接入**的意图时触发…",
+    "how": "先执行 `arkcli --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-plans": {
+    "what": "ARK 套餐管理(Agent Plan / Coding Plan,个人版 + 企业版):查询持有 / 购买 / 续费 / 模型清单 / 轮换 APIKey,**以及企业版席位的全部管理操作**:列出席位(`plans team seat-list`)、给员工分配席位(`plans team seat-assign`)、查谁绑了哪个 seat、轮换席位 AP…",
+    "how": "先执行 `arkcli plans --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-pricing": {
+    "what": "查询火山引擎 ARK 基础模型结算单价（含当前账号折扣）以及 AgentPlan / CodingPlan 套餐订阅价格。Price 字段就是后端按账号合同 / 活动 / 套餐折后的最终单价，OriginalPrice 是公示原价。当用户问模型多少钱、定价、单价、价格、Agent Plan 多少钱、Coding Plan 多少钱、套餐价格、折扣价、按 tok…",
+    "how": "先执行 `arkcli pricing --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-profile": {
+    "what": "arkcli profile 切面管理：列出、查看、新建、切换、删除、重命名 profile；管理 profile 内 API Key 列表；管理五类 profile 的默认资源与持久身份切面。临时 API Key/Base URL/Endpoint 调用不写回 profile，按 arkcli-shared 的 execution-context 契约执行…",
+    "how": "先执行 `arkcli profile --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-resources": {
+    "what": "arkcli resources 实时控制面查询：列出当前/指定 profile 可见资源及其调用兼容性；把 Endpoint 解析为权威模型、模态与候选工作流。read-only，不写 profile.yaml。用户临时给出 ep-... 但未说明该走 Chat、Understand 还是 Gen 时优先使用。",
+    "how": "先执行 `arkcli resources --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-shared": {
+    "what": "arkcli 共享执行协议：首次配置入口、业务命令执行前的认证闸门、命令路由与选择顺序、输出/安全/二次确认规则。深度细节（身份解析、AK-SK 边界、API Key 恢复、实名闸门、profile 默认与漂移、临时数据面执行上下文、全局 flags、故障分流）按需在 references/ 加载。当用户第一次使用 arkcli、遇到未登录/鉴权失败、需要判…",
+    "how": "先执行 `arkcli --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-train-finetune": {
+    "what": "使用 ArkCLI 创建、查询和管理模型精调训练任务,并从训练指标选择最佳 step、导出训练产物、衔接模型仓库与推理部署。",
+    "how": "先执行 `arkcli train finetune --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-understand": {
+    "what": "arkcli +understand：基于 Responses API 的 12 个多模态专项理解配方，支持临时 API Key/Base URL/Endpoint 执行与无副作用 dry-run。用户只给 Endpoint 时先用 resources resolve；转写、抽取、字幕、定位等明确产出走本 skill，开放式对话走 +chat，生成走 +ge…",
+    "how": "先执行 `arkcli +understand --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "arkcli-usage": {
+    "what": "ARK 用量查询:`usage stats`(Token / 请求数,5-30 分钟延迟)、`usage plan` / `usage balance --type plan`(套餐额度快照)、`usage plan-details`(按模型时间序列,套餐内/外拆分)、`usage balance`(余额:免费额度 / 媒资库 / 套餐)、`usage se…",
+    "how": "先执行 `arkcli usage stats --help` 查看帮助；常用命令与详细用法见本文件正文与 `references/` 目录。"
+  },
+  "xlsx": {
+    "what": "电子表格处理:读取 / 编辑 / 修复 / 创建 .xlsx、.xlsm、.csv、.tsv 等表格文件(加列、公式、格式、图表、清洗脏数据),或把杂乱表格整理成规范表格。",
+    "how": "直接说表格文件路径和需求(例如「读 Downloads 里那个 xlsx,把 B 列求和」),AI 会按规范产出/修改表格文件。"
+  },
+  "docx": {
+    "what": "Word 文档处理:创建、读取、编辑、修改 .docx(目录、页码、页眉页脚、表格、批量替换、模板等)。",
+    "how": "告诉 AI 要处理的 Word 文件路径和操作,交付 .docx 文件。"
+  },
+  "pptx": {
+    "what": "PowerPoint 演示文稿处理:.pptx 的创建、读取、编辑、修改(版式、图表、备注、模板、批量生成)。",
+    "how": "给出 .pptx 文件路径与需求,AI 产出或修改演示文稿。"
+  },
+  "pdf": {
+    "what": "PDF 处理:读取 / 提取文字表格、合并拆分、加水印、旋转、填表单、OCR 扫描件、生成新 PDF。",
+    "how": "给出 PDF 文件路径和需求即可,AI 直接处理并交付文件。"
+  },
+  "officecli": {
+    "what": "Office 文档(Word / Excel / PPT)的统一处理入口:创建、分析、校对、修改、加图表,走 officecli 工具。",
+    "how": "描述要处理的 Office 文档和需求,AI 用 officecli 完成并交付。"
+  },
+  "microsoft-foundry": {
+    "what": "微软 Foundry 智能体端到端管理:部署、评估、微调、agent 脚手架、agent.yaml、数据集与持续集成(azd)。",
+    "how": "描述要部署 / 评估 / 微调 / 管理的 Foundry agent 需求,AI 用 azd 流程执行。"
+  },
+  "doc-coauthoring": {
+    "what": "文档协作编写:结构化撰写 / 迭代文档、提案、技术规格、决策文档,帮你把想法整理成能用的文档。",
+    "how": "告诉 AI 要写的文档主题、受众和要点,按结构化流程一步步产出。"
+  }
+}
