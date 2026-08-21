@@ -1,5 +1,4 @@
-
-// GitHub Copilot 桌面端中文汉化注入器 v6 (WebView2 CDP)
+// GitHub Copilot 桌面端中文汉化注入器 v7 (WebView2 CDP)
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
@@ -13,7 +12,7 @@ function buildPayload() {
     "const attrRes = (DICT.attrPatterns || []).map(([p, r, f]) => [new RegExp(p, f), r]);" +
     "const wholeEls = DICT.wholeElements || {};" +
     "const SAMPLE_RE = /^(.+)\\. Creates a sample project\\.$/;" +
-    "const CHAT_RE = /^Chat: (.+)$/;" +
+    "const CHAT_RE = /^Chat: (.+)$/" + ";" +
     "const apply = () => {" +
     "  try {" +
     "    let replaced = 0;" +
@@ -22,13 +21,22 @@ function buildPayload() {
     "    while (n = walker.nextNode()) {" +
     "      const parent = n.parentElement;" +
     "      if (!parent || parent.closest('pre, code, script, style, textarea, [contenteditable=\"true\"]')) continue;" +
+    "      const t = n.textContent.trim();" +
+    "      if (!t || t.length > 400 || t.length < 2) continue;" +
+    "      if (DICT.texts[t] !== undefined) {" +
+    "        if (n.nodeValue.trim() !== DICT.texts[t]) { n.nodeValue = DICT.texts[t]; replaced++; }" +
+    "        continue;" +
+    "      }" +
     "      let tcount = 0, s = parent.firstChild;" +
     "      while (s) { if (s.nodeType === 3 && s.textContent.trim()) tcount++; s = s.nextSibling; }" +
     "      if (tcount > 1) continue;" +
-    "      const t = n.textContent.trim();" +
-    "      if (!t || t.length > 300) continue;" +
-    "      if (DICT.texts[t] !== undefined) { if (n.nodeValue !== DICT.texts[t]) { n.nodeValue = DICT.texts[t]; replaced++; } continue; }" +
-    "      for (let i = 0; i < textRes.length; i++) { if (textRes[i][0].test(t)) { const v = t.replace(textRes[i][0], textRes[i][1]); if (n.nodeValue !== v) { n.nodeValue = v; replaced++; } break; } }" +
+    "      for (let i = 0; i < textRes.length; i++) {" +
+    "        if (textRes[i][0].test(t)) {" +
+    "          const v = t.replace(textRes[i][0], textRes[i][1]);" +
+    "          if (n.nodeValue !== v) { n.nodeValue = v; replaced++; }" +
+    "          break;" +
+    "        }" +
+    "      }" +
     "    }" +
     "    document.querySelectorAll('body *').forEach(el => {" +
     "      if (el.children.length > 0) return;" +
@@ -110,5 +118,5 @@ async function loop() {
     await new Promise(r => setTimeout(r, 3000));
   }
 }
-console.log('[copilot-zh] 汉化注入器 v6 已启动');
+console.log('[copilot-zh] 汉化注入器 v7 已启动');
 loop().catch(e => { console.error(e); process.exit(1); });

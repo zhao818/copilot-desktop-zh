@@ -1,0 +1,5 @@
+*.scan.json
+*_unknown.json
+new_unknowns.json
+extracted_unknown.json
+settings_*.json
