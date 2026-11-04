@@ -62,13 +62,12 @@ function buildPayload() {
     "  } catch (e) { return 'ERR:' + e.message; }" +
     "};" +
     "const res = apply();" +
+    "if (window.__copilotZhTimer) { clearInterval(window.__copilotZhTimer); window.__copilotZhTimer = null; }" +
     "if (!window.__copilotZhInstalled) {" +
     "  if (window.__copilotZhObs) { try { window.__copilotZhObs.disconnect(); } catch (e) {} }" +
-    "  if (window.__copilotZhTimer) { clearInterval(window.__copilotZhTimer); }" +
     "  const mo = new MutationObserver(() => { clearTimeout(window.__copilotZhDbt); window.__copilotZhDbt = setTimeout(apply, 200); });" +
     "  mo.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['aria-label','placeholder','title','alt'] });" +
     "  window.__copilotZhObs = mo;" +
-    "  window.__copilotZhTimer = setInterval(apply, 1200);" +
     "  window.__copilotZhInstalled = true;" +
     "}" +
     "return res;" +
