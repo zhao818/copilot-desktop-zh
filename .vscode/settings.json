@@ -1,0 +1,7 @@
+{
+  "github.copilot.chat.localeOverride": "zh-CN",
+  "github.copilot.enable": {
+    "*": true
+  },
+  "editor.inlineSuggest.enabled": true
+}
